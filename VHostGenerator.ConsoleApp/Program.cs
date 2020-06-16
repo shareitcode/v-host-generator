@@ -58,6 +58,7 @@ namespace VHostGenerator.ConsoleApp
 
         private static void CheckDomaineNameValidity(string domaineName)
         {
+            // TODO: Add domain regex
             if (string.IsNullOrEmpty(domaineName))
             {
                 Console.WriteLine("Invalide domaine!");
