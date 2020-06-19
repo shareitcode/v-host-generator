@@ -1,13 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
 
 namespace VHostGenerator.ConsoleApp
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal abstract class ApacheVHost : VHostGenerator
     {
+        /// <summary>
+        /// 
+        /// </summary>
         internal string VHost = @"<VirtualHost *:80>
     ServerName $domain_name
     ServerAlias www.$domain_name
@@ -36,6 +38,10 @@ namespace VHostGenerator.ConsoleApp
             VHost = VHost.Replace("$domain_name", domaineName);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="domaineName"></param>
         internal abstract void ApacheCommande(string domaineName);
     }
 }

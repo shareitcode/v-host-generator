@@ -1,13 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Text;
 
 namespace VHostGenerator.ConsoleApp
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal sealed class DebianApacheVHost : ApacheVHost
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="domaineName"></param>
         internal override void CreateVHostFile(string domaineName)
         {
             string vHostFile = $"/etc/apache2/sites-available/{domaineName}.conf";
@@ -22,12 +27,20 @@ namespace VHostGenerator.ConsoleApp
             }
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="domaineName"></param>
         internal override void EnableVHost(string domaineName)
         {
             Console.WriteLine($"\n 4 > Enable v-host (a2ensite {domaineName}.conf)");
             ApacheCommande(domaineName);
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="domaineName"></param>
         internal override void ApacheCommande(string domaineName)
         {
             Process process = new Process()
@@ -47,6 +60,9 @@ namespace VHostGenerator.ConsoleApp
             Console.WriteLine($" --- a2ensite command result:\n{result}");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         internal override void RestartServerCommande()
         {
             Process process = new Process()

@@ -1,13 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace VHostGenerator.ConsoleApp
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal abstract class VHostGenerator
     {
+        /// <summary>
+        /// 
+        /// </summary>
         private static string _html = @"<!DOCTYPE html>
 <html lang=""fr"">
 <head>
@@ -20,6 +23,10 @@ namespace VHostGenerator.ConsoleApp
 </body>
 </html>";
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="webSitePath"></param>
         public void CreateWebSiteDirectory(string webSitePath)
         {
             Console.WriteLine($" 1 > Create web site directory ({webSitePath})");
@@ -33,6 +40,11 @@ namespace VHostGenerator.ConsoleApp
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="webSitePath"></param>
+        /// <param name="domaineName"></param>
         public void CreateWebSiteDirectoryWithHtmlFile(string webSitePath, string domaineName)
         {
             Console.WriteLine($" 1 > Create web site directory ({webSitePath})");
@@ -48,12 +60,27 @@ namespace VHostGenerator.ConsoleApp
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="domaineName"></param>
         internal abstract void PrepareVHost(string domaineName);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="domaineName"></param>
         internal abstract void CreateVHostFile(string domaineName);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="domaineName"></param>
         internal abstract void EnableVHost(string domaineName);
 
+        /// <summary>
+        /// 
+        /// </summary>
         internal abstract void RestartServerCommande();
     }
 }
